@@ -1,12 +1,17 @@
 import pathlib
 from django.http import HttpResponse
 from django.shortcuts import render
+from visits.models import PageVisit
 
 this_dir = pathlib.Path(__file__).resolve().parent
 
 def home_view(request, *args, **kwargs):
+    queryset = PageVisit.objects.all()
+    
     my_title = "my page"
     my_context = {
-        "title": my_title,}
+        "title": my_title,
+        "queryset": queryset}
     html_template = "home.html"
-    return render(request, html_template,my_context)
+    PageVisit.objects.create(path=request.path)
+    return render(request, html_template,my_context) 
