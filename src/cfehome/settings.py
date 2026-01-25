@@ -80,11 +80,11 @@ import dj_database_url
 from decouple import config
 
 # Read DATABASE_URL from .env or fallback to SQLite
-DATABASE_URL = config('DATABASE_URL', default=None)
+DATABASE_URL = config('DATABASE_URL', cast=str, default='')
 
-if DATABASE_URL:
+if DATABASE_URL is not None:
     DATABASES = {
-        'default': dj_database_url.parse(DATABASE_URL)
+        'default': dj_database_url.config(default = DATABASE_URL, conn_max_age=30,conn_health_checks=True)
     }
 else:
     import os
