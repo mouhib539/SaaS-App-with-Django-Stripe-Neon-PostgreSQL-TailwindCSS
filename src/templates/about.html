@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,4 +10,8 @@
 <body>
     <h1>about page</h1>
 </body>
+{% block content %}
+<h1>Home - My Site</h1>
+page visits: {{queryset.count}}
+{% endblock content%}
 </html>

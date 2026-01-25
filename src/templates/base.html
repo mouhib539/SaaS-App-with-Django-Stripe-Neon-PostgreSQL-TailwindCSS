@@ -1,26 +1,24 @@
-<html>  
-    <head>  
-        <title>{% block title %}My Site{% endblock %}</title>  
-    </head>  
-    <body>  
-        <header>  
-            <h1>Welcome to My Site</h1>  
-        </header>  
-        <nav>  
-            <ul>  
-                <li>{{title}}</li>
-                <li><a href="/">Home</a></li>  
-                <li><a href="/about/">About</a></li>  
-                <li><a href="/contact/">Contact</a></li>   
-            </ul>  
-        </nav>  
-        <main>  
-            {% block content %}  
-            <!-- Main content will be injected here -->  
-            {% endblock %}  
-        </main>  
-        <footer>  
-            <p>&copy; 2025 My Site</p>  
-        </footer>  
-    </body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Site{% endblock %}</title>
+    {% load static %}
+    {% include "base/css.html" %}
+</head>
+<body>
+    <!-- Header + Navbar: same for all pages -->
+
+    {% include "nav/navbar.html" %}
+
+    <!-- Main content area: changes per page -->
+    <main class="p-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Site</p>
+    </footer>
+
+    {% include "base/js.html" %}
+</body>
 </html>

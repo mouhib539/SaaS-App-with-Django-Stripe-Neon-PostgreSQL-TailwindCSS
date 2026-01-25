@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Home - My Site</h1>
-page visits: {{queryset.count}}
-{% endblock content%}
+<div class="mt-6 p-4">
+    <h1 class="text-3xl font-bold text-blue-600 mb-2">Home - My Site</h1>
+    <p class="text-gray-700">Page visits: {{ queryset.count }}</p>
+</div>
+{% endblock content %}
