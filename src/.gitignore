@@ -1,4 +1,5 @@
-
+src\staticfiles\vendors
+local-cdn/
 venv/
 .venv/
 .env
