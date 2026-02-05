@@ -3,9 +3,10 @@ import helpers
 from typing import Any
 
 from django.core.management.base import BaseCommand
-
+from django.conf import settings    
 from commando.models import Vendor
 
+STATICFILES_VENDORS_DIR = getattr(settings, "STATICFILES_VENDORS_DIR") 
 
 VENDOR_STATICFILES = {
     "flowbite.min.js": "https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js",
